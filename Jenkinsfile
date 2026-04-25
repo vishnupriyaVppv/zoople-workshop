@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'zoople-devops-workshop-vijin:latest'
-        CONTAINER_NAME = 'vishnu-app'
+        CONTAINER_NAME = 'vishnupriya-app'
         APP_PORT = '3000'
-        DOMAIN = 'vishnu.workshop.zoople.in'
+        DOMAIN = 'vishnupriya.workshop.zoople.in'
         NGINX_DIR = '/home/ubuntu/nginx'
     }
 
