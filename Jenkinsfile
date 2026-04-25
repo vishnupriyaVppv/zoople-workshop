@@ -51,23 +51,18 @@ pipeline {
                 sh '''
                 set -ex
 
-                echo "Current user: $(whoami)"
-                echo "Current path: $(pwd)"
-                echo "Home path: $HOME"
-
-                echo "Checking nginx path: $NGINX_DIR"
+                echo "===== DEBUG INFO ====="
+                whoami
+                pwd
+                ls -la /var/lib/jenkins
+                ls -la $NGINX_DIR || true
 
                 if [ ! -d "$NGINX_DIR" ]; then
-                  echo "ERROR: $NGINX_DIR does not exist"
-                  echo "Copy nginx folder once using:"
-                  echo "sudo cp -r /home/ubuntu/nginx /var/lib/jenkins/nginx"
-                  echo "sudo chown -R jenkins:jenkins /var/lib/jenkins/nginx"
+                  echo "❌ nginx dir missing"
                   exit 1
                 fi
 
-                ls -la "$NGINX_DIR"
-
-                cd "$NGINX_DIR"
+                cd $NGINX_DIR
 
                 chmod +x nginx.sh
 
